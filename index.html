@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Cam 🌸</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@400;500;600&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Quicksand', sans-serif;
+            /* Romantic Pink to Light Blue Gradient */
+            background: linear-gradient(135deg, #ffc0cb 0%, #a1c4fd 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for the floating flowers */
+        #flowers-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Styling for the Baby's Breath */
+        .flower {
+            position: absolute;
+            bottom: -20px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8);
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(30px) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism Card Style */
+        .card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            color: #4a4a4a;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .heart {
+            color: #ff8da1;
+            font-size: 1.2rem;
+            animation: beat 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="flowers-container"></div>
+
+    <div class="card">
+        <h1>Dear Cam,</h1>
+        <p>I hope you find happiness in every little thing, and keep a beautiful mood every single day.</p>
+        <p>Honestly, my biggest wish each day is just to see you smiling and carefree</span>.</p>
+        <p>Whenever I see you upset or down, my heart feels heavy and aches right along with yours.</p>
+        <p>Please remember, whatever dark clouds are in your sky right now, they will eventually pass</span>. The good days are always waiting for you.</p>
+        <p>I'm always here for you. <span class="heart">❤❤❤</span></p>
+    </div>
+
+    <script>
+        // Generate floating baby's breath flowers
+        const container = document.getElementById('flowers-container');
+        const flowerCount = 120; // Number of flowers
+
+        for (let i = 0; i < flowerCount; i++) {
+            let flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Randomize position, size, and animation timing
+            let size = Math.random() * 4 + 2; // Size between 2px and 6px
+            let leftPos = Math.random() * 100; // Position across the screen width
+            let duration = Math.random() * 10 + 8; // Animation length between 8s and 18s
+            let delay = Math.random() * 10; // Random delay so they don't all start at once
+
+            flower.style.width = `${size}px`;
+            flower.style.height = `${size}px`;
+            flower.style.left = `${leftPos}vw`;
+            flower.style.animationDuration = `${duration}s`;
+            flower.style.animationDelay = `${delay}s`;
+
+            // Swaying effect via slightly randomized starting points
+            if (Math.random() > 0.5) {
+                flower.style.transform = `translateX(${Math.random() * 20}px)`;
+            }
+
+            container.appendChild(flower);
+        }
+    </script>
+
+</body>
+</html>
